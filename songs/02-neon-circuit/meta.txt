@@ -1,9 +1,0 @@
-title=Neon Circuit
-artist=SlideBeat Originals
-bpm=120
-duration=80.0000
-icon=pico
-color=185 132 255
-description=Bright synths, alternating strokes and syncopation.
-order=2
-preview=8.0

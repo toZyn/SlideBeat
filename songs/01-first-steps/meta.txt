@@ -1,9 +1,0 @@
-title=First Steps
-artist=SlideBeat Originals
-bpm=80
-duration=48.0000
-icon=bf
-color=107 204 255
-description=Wide, steady beats. Learn the return to center.
-order=1
-preview=12.0
