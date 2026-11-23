@@ -1,0 +1,66 @@
+local Model=dofile('slidebeat/modules/chart.lua')
+local Gesture=dofile('slidebeat/modules/gesture.lua')
+local chart={notes={player={{t=1500,d=3,l=0},{t=1000,d=0,l=500},{t=1000,d=2,l=0},{t=2000,d=1,l=0}},enemy={{t=1000,d=2,l=0}}}}
+local notes=assert(Model.convert(chart))
+assert(#notes==3 and notes[1].dirs[3] and notes[1].dirs[1] and notes[1].count==2)
+assert(notes[1].ends[3]==1.5 and chart.notes.player[1].t==1500)
+local game=Model.new(notes,false)
+assert(Model.hit(game,4,0.5,true)==nil and game.index==1)
+assert(Model.hit(game,3,1,true)==1 and #game.holds==1)
+Model.update(game,1.4,true)
+assert(game.judged==1)
+assert(Model.hit(game,4,1.5,true)==1 and #game.holds==0)
+assert(Model.hit(game,2,2,true)==1)
+assert(game.score==4000 and game.maxCombo==4 and Model.accuracy(game)==100)
+local early=Model.new(notes,false)
+Model.hit(early,3,1,true)
+Model.update(early,1.1,false)
+assert(early.counts[4]==1 and early.combo==0 and #early.holds==0)
+local practice=Model.new(notes,true)
+Model.update(practice,99,false)
+assert(not practice.failed and practice.counts[4]==3)
+local dense={}
+for i=1,80 do dense[i]={t=i*100,d=i%4,l=0} end
+local denseNotes=assert(Model.convert({notes={player=dense}}))
+local complete=Model.new(denseNotes,false)
+for _,n in ipairs(denseNotes) do
+    for dir in pairs(n.dirs) do assert(Model.hit(complete,dir,n.time,true)==1) end
+end
+assert(complete.score==80000 and complete.maxCombo==80 and Model.rank(complete)=='S')
+local failed=Model.new(denseNotes,false)
+Model.update(failed,99,false)
+assert(failed.failed and failed.health==0)
+local wrong=Model.new(notes,false)
+assert(Model.hit(wrong,2,1,true)==4 and wrong.counts[4]==1)
+assert(Model.convert({notes={player={{t=1,d=0,l=-1}}}})==nil)
+assert(Model.convert({notes={player={}}})==nil)
+assert(Model.convert({notes={player={{t=0/0,d=0}}}})==nil)
+local g=Gesture.new()
+assert(not g:press('a',100,0,0,0,20))
+assert(g:press('a',0,0,0,0,20))
+assert(not g:press('b',0,0,0,0,20))
+assert(g:move('b',0,100,0,0,80,20)==nil)
+assert(g:move('a',0,-100,0,0,80,20)==1)
+assert(g:move('a',0,-110,0,0,80,20)==nil)
+assert(g:move('a',0,100,0,0,80,20)==2)
+g:clear()
+assert(g:move('a',100,0,0,0,80,20)==nil)
+local calls,hits=0,0
+love={mousepressed=function() calls=calls+1 end,touchpressed=function() calls=calls+1 end}
+local before=love.mousepressed
+local Bridge=dofile('slidebeat/modules/input.lua')
+local owner={press=function() hits=hits+1 end,move=function() end,release=function() end}
+local b=Bridge.new(owner)
+love.mousepressed(0,0,1,false)
+love.mousepressed(0,0,1,true)
+love.touchpressed('a',0,0)
+assert(calls==3 and hits==2)
+b:close()
+assert(love.mousepressed==before)
+local c=Bridge.new(owner)
+local wrapper=love.mousepressed
+love.mousepressed=function(...) wrapper(...) end
+c:close()
+love.mousepressed(0,0,1,false)
+assert(hits==2 and calls==4,'a later wrapper must remain functional after cleanup')
+print('PASS: native chart conversion, chords, holds, timing, life, practice, dense runs, gestures and reversible event hooks')

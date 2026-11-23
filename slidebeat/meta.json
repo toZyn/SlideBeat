@@ -1,0 +1,7 @@
+{
+  "name": "SlideBeat",
+  "description": "Hold the center and slide to the beat. Adds a radial rhythm mode using Light-Engine's Freeplay songs and difficulties.",
+  "author": "Zyn",
+  "version": 1,
+  "color": "#64D9FF"
+}
