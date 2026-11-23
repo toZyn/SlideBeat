@@ -98,7 +98,7 @@ jobs:
             "$BUILD_TOOLS/apksigner" verify --verbose "signed/$name"
           done
           python3 tools/android_package.py validate signed
-          sha256sum signed/*.apk > signed/SHA256SUMS.txt
+          (cd signed && sha256sum *.apk > SHA256SUMS.txt)
 
       - name: Upload installable APKs
         uses: actions/upload-artifact@v4
