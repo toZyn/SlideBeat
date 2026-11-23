@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>SlideBeat</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #0a0a0f;
-      display: flex; align-items: center; justify-content: center;
-      width: 100vw; height: 100vh; overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    canvas {
-      display: block;
-      touch-action: none;
-      cursor: none;
-    }
-  </style>
-</head>
-<body>
-  <canvas id="game"></canvas>
-  <script type="module" src="src/main.js"></script>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101112"><title>SlideBeat — Find your flow</title><link rel="stylesheet" href="style.css"></head>
+<body><header><a href="./" class="brand">slidebeat<span> / </span></a><span class="tag">HOLD. SLIDE. REPEAT.</span><button id="sound" aria-pressed="false">Sound on</button></header>
+<main><section class="intro"><div class="eyebrow">A LITTLE RHYTHM. A LOT OF FLOW.</div><h1>Find your<br><em>direction.</em></h1><p>Four arrows. One center. Hold and slide to the beat.</p><div class="modes" role="group" aria-label="Difficulty"><button data-mode="flow" class="selected">01 Flow<small>100 BPM · easy</small></button><button data-mode="pulse">02 Pulse<small>128 BPM · normal</small></button><button data-mode="rush">03 Rush<small>150 BPM · hard</small></button></div><button id="start" class="primary">Play Flow <span>↗</span></button><p class="hint">Original synth loops · no downloads needed</p></section>
+<section class="play"><div class="stats"><div><small>SCORE</small><strong id="score">000000</strong></div><div><small>ACCURACY</small><strong id="accuracy">—</strong></div><button id="pause" disabled>Pause</button></div><div id="arena" aria-label="Hold at the center and slide toward the highlighted arrow"><svg viewBox="0 0 500 500" aria-hidden="true"><circle class="orbit" cx="250" cy="250" r="152"/><path class="guides" d="M250 98V402 M98 250H402"/><g id="targets"><g transform="translate(250 98)"><path d="M-25 5 0-22 25 5H10V26H-10V5Z"/></g><g transform="translate(250 402) rotate(180)"><path d="M-25 5 0-22 25 5H10V26H-10V5Z"/></g><g transform="translate(98 250) rotate(270)"><path d="M-25 5 0-22 25 5H10V26H-10V5Z"/></g><g transform="translate(402 250) rotate(90)"><path d="M-25 5 0-22 25 5H10V26H-10V5Z"/></g></g><circle id="approach" cx="250" cy="250" r="50"/><path id="trail"/><circle id="center" cx="250" cy="250" r="38"/><circle id="cursor" cx="250" cy="250" r="7"/></svg><div id="feedback" role="status">START IN THE CENTER</div><div id="combo">Ready when you are.</div><div id="overlay" hidden><h2 id="overlayTitle">Paused</h2><p id="summary"></p><button id="resume" class="primary">Resume</button><button id="exit">Back to menu</button></div></div><div class="progress"><i id="progress"></i></div><div class="below"><span id="track">FLOW / SOFT CIRCUIT</span><span id="time">00:00</span></div><p class="instruction" id="instruction">Hold the center → slide to the lit arrow → return. Keep holding.</p></section></main><footer><span>SLIDEBEAT / VOL. 01</span><span>Made for your mouse. And your fingertips.</span><button id="fullscreen">Fullscreen ↗</button></footer><script type="module" src="game.js"></script></body></html>

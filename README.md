@@ -1,101 +1,21 @@
-# 🎵 SlideBeat
+# SlideBeat
 
-A rhythm game inspired by Osu! — hold and **slide** your cursor/finger to the beat.
+A rhythm game inspired by Osu! — hold and slide your cursor/finger to the beat.
 
-## Gameplay
+Hold the center, slide toward the highlighted arrow as its approach ring closes, then return to the center while still holding. Every flick needs a fresh return to the center. Releasing is allowed; start again at the center. Wrong directions and expired notes break your combo.
 
-Four arrows are arranged around a central point:
-- **↑ Up** — slide upward
-- **↓ Down** — slide downward
-- **← Left** — slide left
-- **→ Right** — slide right
+## Play
 
-Hold the mouse button (or touch) at the **center**, then slide toward the highlighted arrow before time runs out. Fast sequences demand quick flicks — that's the challenge.
+Run `npm start`, then open http://localhost:3000. Any static host works, including GitHub Pages. No installation or build step is required. Use a modern browser with Web Audio and Pointer Events.
 
-## Features
+- Flow: 100 BPM, 64 notes.
+- Pulse: 128 BPM, 64 notes.
+- Rush: 150 BPM, 128 notes with half-beat flicks.
 
-- 🖱️ Mouse & 📱 Touch support
-- 🎵 `.ogg` audio format
-- 📋 `.jsonl` level format (one note per line)
-- 🌙 Lua-based event scripting (`SlideLua`) for camera/arrow animations
-- 🗂️ Level selector with cover art
-- ⚙️ Settings menu
-- 💥 Osu-style hit feedback (Perfect / Good / Miss)
+Music is synthesized locally with the Web Audio clock. The same clock controls note judgments. Pause freezes both; hiding the tab pauses automatically. Touch input uses pointer capture and disables page gestures only inside the playfield. Best scores are saved locally when browser storage is available.
 
-## Tech Stack
+Perfect hits award 300 points, good hits 150, plus a combo bonus. Accuracy weights perfect hits at 100%, good hits at 65%, and misses at 0%.
 
-- **HTML5 Canvas + Vanilla JS** — no build step, runs in any browser
-- **Web Audio API** — `.ogg` playback
-- **SlideLua** — custom Lua-like scripting for level events (parsed in JS)
+## Development
 
-## Project Structure
-
-```
-SlideBeat/
-├── index.html              ← Entry point
-├── src/
-│   ├── main.js             ← Boot, scene router
-│   ├── scenes/
-│   │   ├── MenuScene.js    ← Main menu
-│   │   ├── SelectScene.js  ← Level selection
-│   │   ├── GameScene.js    ← Gameplay
-│   │   └── SettingsScene.js
-│   ├── engine/
-│   │   ├── AudioEngine.js  ← OGG playback
-│   │   ├── InputHandler.js ← Mouse & Touch
-│   │   ├── Renderer.js     ← Canvas drawing
-│   │   ├── NoteEngine.js   ← Note timing / hit detection
-│   │   └── EventEngine.js  ← SlideLua event runner
-│   └── utils/
-│       ├── LevelLoader.js  ← Parses level.jsonl + info.json
-│       └── ScriptParser.js ← SlideLua interpreter
-├── levels/
-│   └── level01/
-│       ├── music.ogg
-│       ├── level.jsonl
-│       ├── cover.png
-│       ├── icon.png
-│       ├── info.json
-│       └── events/
-│           └── pulse.lue
-└── docs/
-    ├── level-format.md     ← Level .jsonl spec
-    └── slidelua.md         ← SlideLua scripting reference
-```
-
-## Level Folder Format
-
-```
-level01/
-├── music.ogg       ← Audio track (OGG Vorbis)
-├── level.jsonl     ← Notes & event triggers (one JSON object per line)
-├── cover.png       ← Background shown in level select (recommended 1280×720)
-├── icon.png        ← Small icon shown in level card (recommended 256×256)
-├── info.json       ← Level metadata
-└── events/
-    └── pulse.lue   ← SlideLua script for the "pulse" event
-```
-
-## Running the Game
-
-Just open `index.html` in a browser (use a local server to load level files):
-
-```bash
-npx serve .
-# or
-python3 -m http.server 8080
-```
-
-Then go to `http://localhost:8080`.
-
-## Audio Format
-
-Use **OGG Vorbis** (`.ogg`). Recommended encoding:
-- Bitrate: 192 kbps
-- Sample rate: 44100 Hz
-- Channels: Stereo
-
-Convert with ffmpeg:
-```bash
-ffmpeg -i song.mp3 -c:a libvorbis -q:a 6 music.ogg
-```
+`npm test` runs chart, timing and direction checks. The app uses native browser modules and has no runtime dependencies. Artwork and synth loops were created for this implementation; no assets from Light-Engine were copied and that repository was not modified.
