@@ -1,0 +1,106 @@
+{
+  "repository": "toZyn/Light-Engine",
+  "commit": "eb0d62aa094be1cba9d667c5a941cacee4ae9d14",
+  "files": [
+    {
+      "source": "assets/images/menus/menuBG.png",
+      "destination": "assets/light/images/menuBG.png",
+      "sha256": "0f657b3b810bff85c3e46fd5714124001bcabc36a4c68d231408597692d6bcb7"
+    },
+    {
+      "source": "assets/images/menus/menuDesat.png",
+      "destination": "assets/light/images/menuDesat.png",
+      "sha256": "40078fd54ca2a10079b78da61e1971bbd42a70bdfc3c06fad7536d7480602bb7"
+    },
+    {
+      "source": "assets/images/skins/default/NOTE_assets.png",
+      "destination": "assets/light/images/notes.png",
+      "sha256": "0f8467b82d861873e44c8b018a089f0113b92a04732394750d2f29ba4dae0978"
+    },
+    {
+      "source": "assets/images/skins/default/NOTE_assets.xml",
+      "destination": "assets/light/images/notes.xml",
+      "sha256": "1538a64b52228537ce30bfa3ca6511a5b3582848e3005c17f4b6874e601a049a"
+    },
+    {
+      "source": "assets/fonts/vcr.ttf",
+      "destination": "assets/light/fonts/vcr.ttf",
+      "sha256": "01918d86cb163a715dcb97165b997256734dfcc9f550beeb7c142fa4a064cf1c"
+    },
+    {
+      "source": "assets/images/skins/default/ready.png",
+      "destination": "assets/light/images/ready.png",
+      "sha256": "5a61fdbbf30de063004dc14674ce2c68bd96267ab362bbe02a44cd359d1dcf65"
+    },
+    {
+      "source": "assets/images/skins/default/set.png",
+      "destination": "assets/light/images/set.png",
+      "sha256": "b14eaeaeb1c29b0cd3eae7db5a9b2280d5f3b3d4d47c3f65d44ed7538b8bed79"
+    },
+    {
+      "source": "assets/images/skins/default/go.png",
+      "destination": "assets/light/images/go.png",
+      "sha256": "7d7cf796e85fa8f2377ee024d1b4fd5df10dbf6c8f6f5145f753265fc35ebd65"
+    },
+    {
+      "source": "assets/images/skins/default/sick.png",
+      "destination": "assets/light/images/sick.png",
+      "sha256": "3b47c9ad345483502c8e31c6ab02ce9a58e270f46530424b8c68faec2ab6e845"
+    },
+    {
+      "source": "assets/images/skins/default/good.png",
+      "destination": "assets/light/images/good.png",
+      "sha256": "499032d73dddbee481488ad627471d1d393190af2e8eac75e978514fa216fea4"
+    },
+    {
+      "source": "assets/images/skins/default/bad.png",
+      "destination": "assets/light/images/bad.png",
+      "sha256": "d3469e76fdd9c61368c90ab6ff8a59106c88c02c88654027d52121de293be16d"
+    },
+    {
+      "source": "assets/images/skins/default/shit.png",
+      "destination": "assets/light/images/shit.png",
+      "sha256": "adb1011d5aa119553f110d45c5b7e664fe10a6bc5e00be627ce480650cb98229"
+    },
+    {
+      "source": "assets/images/skins/default/healthBar.png",
+      "destination": "assets/light/images/healthBar.png",
+      "sha256": "39cbf45979fa1dfb425c9c1bcae40b3077ecc936f9879f6ca01e519c26a0b393"
+    },
+    {
+      "source": "assets/images/icons/bf.png",
+      "destination": "assets/light/images/bf.png",
+      "sha256": "576572d6a438dcff9d49875ab991b0ee06c5d5da78601296838eb6d4c2ad27bb"
+    },
+    {
+      "source": "assets/images/icons/pico.png",
+      "destination": "assets/light/images/pico.png",
+      "sha256": "0baac34334f5a15e139f86f84d585eb238c5859f6eaaecb2fefb4d5d73abc4ad"
+    },
+    {
+      "source": "assets/images/icons/dad.png",
+      "destination": "assets/light/images/dad.png",
+      "sha256": "1c74782a16fa7ef667fbbe31852794f30b4e8d16e082ba965111872dfb9912e5"
+    },
+    {
+      "source": "assets/sounds/scrollMenu.ogg",
+      "destination": "assets/light/sounds/scrollMenu.ogg",
+      "sha256": "ed2468c8977630867663409dfacf99a38d7fcd2a00f57204d021d607d09530c4"
+    },
+    {
+      "source": "assets/sounds/confirmMenu.ogg",
+      "destination": "assets/light/sounds/confirmMenu.ogg",
+      "sha256": "aa884bea3e4ab2d32525ccf4e319afb7fc2a9ec5989e800fa3ba06d03bd867bb"
+    },
+    {
+      "source": "assets/sounds/cancelMenu.ogg",
+      "destination": "assets/light/sounds/cancelMenu.ogg",
+      "sha256": "614761147214e02cd9d0f5d90bd2de61c7be3d364bcbc0a4f4b24e2db9e5a3df"
+    },
+    {
+      "source": "assets/sounds/hitsound.ogg",
+      "destination": "assets/light/sounds/hitsound.ogg",
+      "sha256": "1c304d679ce231ab84a2a1b8da6951a0f80aa4862d3ebd09a626e0b1dcd1d9cd"
+    }
+  ]
+}

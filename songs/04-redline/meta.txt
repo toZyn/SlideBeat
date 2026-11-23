@@ -1,0 +1,9 @@
+title=Redline
+artist=SlideBeat Originals
+bpm=160
+duration=72.0000
+icon=dad
+color=255 127 118
+description=Fast runs, short bursts and sudden direction changes.
+order=4
+preview=6.0

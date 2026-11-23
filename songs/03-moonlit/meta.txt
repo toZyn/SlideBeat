@@ -1,0 +1,9 @@
+title=Moonlit
+artist=SlideBeat Originals
+bpm=98
+duration=88.1633
+icon=bf
+color=104 232 191
+description=A slower groove with rests and flowing phrases.
+order=3
+preview=9.795918367346939
